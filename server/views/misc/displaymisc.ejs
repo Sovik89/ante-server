@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./../layouts/head",{pageName: "Display Misc" });%>
+  <body>
+    <a href="/miscs/add-misc"> Add Misc</a>
+    <%if(miscs.length==0){%>No miscs present<%}%> <%miscs.forEach(misc=>{%>
+    <p><%= misc.title %></p>
+    <p><%= misc.description %></p>
+    <a href="/miscs/edit-misc/<%= misc.id %>">Edit</a>
+    <a href="/miscs/delete-misc/<%= misc.id %>">Delete</a>
+    <%});%>
+  </body>
+</html>

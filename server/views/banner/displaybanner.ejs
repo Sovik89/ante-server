@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./../layouts/head",{pageName: "Display Banner" });%>
+  <body>
+    <a href="/banners/add-banner"> Add Banner</a>
+    <%if(banners.length==0){%>No banner present<%}%>
+    <%banners.forEach(banner=>{%>
+    <p><%= banner.description %></p>
+    <a href="/banners/edit-banner/<%= banner.id %>">Edit</a>
+    <a href="/banners/delete-banner/<%= banner.id %>">Delete</a>
+    <%});%>
+  </body>
+</html>

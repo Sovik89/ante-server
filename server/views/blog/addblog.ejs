@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./../layouts/head",{pageName: "Add Blog" });%>
+  <body>
+    <script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script>
+    <a href="/blogs">All Blogs</a>
+    <a href="/dashboard">Dashboard</a>
+    <form method="POST" action="/blogs/add-blog" enctype="multipart/form-data">
+      <label for="title">Title</label>
+      <input type="text" name="title" required />
+      <%= possibleErrors.title %>
+      <label for="description">Description</label>
+      <textarea
+        name="description"
+        id="description"
+        rows="14"
+        cols="20"
+        required
+      ></textarea>
+      <input id="original" name="original" />
+      <%= possibleErrors.description %>
+      <label for="imageUrl">ImageUrl</label>
+      <input type="file" name="imageUrl" accept="image/*" required />
+      <input type="submit" value="SAVE" />
+      <input type="reset" value="Reset" />
+    </form>
+    <script>
+      ClassicEditor.create(document.querySelector("#description"))
+        .then((editor) => {
+          editor.on("instanceReady", () => {
+            // This code will run once CKEditor is fully initialized
+            const descriptionTextarea = document.querySelector("#original");
+            descriptionTextarea.value =
+              CKEditor.instances.description.getData();
+          });
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+      // ClassicEditor.instances.description.editing.view.document.on(
+      //   "change:data",
+      //   () => {
+      //     const descriptionTextarea = document.querySelector("#original");
+      //     descriptionTextarea.value = CKEditor.instances.description.getData();
+      //   }
+      // );
+    </script>
+  </body>
+</html>

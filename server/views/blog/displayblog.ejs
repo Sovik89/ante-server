@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./../layouts/head",{pageName: "Display Blog" });%>
+  <body>
+    <a href="/blogs/add-blog"> Add Blog</a>
+    <%if(blogs.length==0){%>No blogs present<%}%> <%blogs.forEach(blog=>{%>
+    <p><%= blog.title %></p>
+    <p><%= blog.description %></p>
+    <a href="/blogs/edit-blog/<%= blog.id %>">Edit</a>
+    <a href="/blogs/delete-blog/<%= blog.id %>">Delete</a>
+    <%});%>
+  </body>
+</html>

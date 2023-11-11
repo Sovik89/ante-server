@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./../layouts/head",{pageName: "Edit Misc" });%>
+  <body>
+    <a href="/miscs">All Miscs</a>
+      <a href="/dashboard">Dashboard</a>
+    <form method="POST" action="/miscs/edit-misc/<%= misc.id%>" enctype="multipart/form-data">
+      <input type="hidden" name="id" value="<%= misc.id%>">
+      <label for="title">Title</label>
+      <input type="text" name="title" value="<%=misc.title%>" required />
+      <%= possibleErrors.title %>
+      <label for="description">Description</label>
+      <textarea
+        name="description"
+        rows="14" cols="20"
+        required
+      ><%=misc.description%></textarea>
+      <%= possibleErrors.description %>
+      <label for="miscImageUrl">MiscelleneousImageUrl</label>
+      <input type="file" name="miscImageUrl" accept="image/*" required />
+      <label for="aboutBannerImageUrl">AboutBannerImageUrl</label>
+      <input type="file" name="aboutBannerImageUrl" accept="image/*" required />
+      <label for="serviceListBannerImageUrl">ServiceListBannerImageUrl</label>
+      <input type="file" name="serviceListBannerImageUrl" accept="image/*" required />
+      <label for="serviceDetailsBannerImageUrl">ServiceDetailsBannerImageUrl</label>
+      <input type="file" name="serviceDetailsBannerImageUrl" accept="image/*" required />
+      <label for="blogListBannerImageUrl">BlogListBannerImageUrl</label>
+      <input type="file" name="blogListBannerImageUrl" accept="image/*" required />
+      <label for="contactUsBannerImageUrl">ContactUsBannerImageUrl</label>
+      <input type="file" name="contactUsBannerImageUrl" accept="image/*" required />
+      <input type="submit" value="SAVE" />
+      <input type="reset" value="Reset" />
+    </form>
+  </body>
+</html>
