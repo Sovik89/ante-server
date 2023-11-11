@@ -23,7 +23,7 @@ const express = require("express");
 //   origin: [process.env.ORIGIN, process.env.ORIGIN2],
 //   optionsSuccessStatus: 200,
 // };
-// const app = express();
+const app = express();
 // app.use(cors(corsOptions));
 // app.use(
 //   session({
