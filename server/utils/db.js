@@ -10,6 +10,6 @@ const sequelize = new Sequelize(
   }
 );
 
-sequelize.authenticate();
+sequelize.authenticate().then().catch((err)=>{console.log(err)});
 
 module.exports = sequelize;
