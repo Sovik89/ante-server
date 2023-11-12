@@ -6,10 +6,10 @@ const sequelize = new Sequelize(
   process.env.DB_PASSWORD,
   {
     host: process.env.DOMAIN,
-    dialect: process.env.DB,
+    dialect: "mysql",
   }
 );
 
-sequelize.authenticate();
+sequelize.authenticate().then().catch((err)=>{console.log(err)});
 
 module.exports = sequelize;

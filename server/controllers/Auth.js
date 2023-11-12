@@ -8,11 +8,16 @@ exports.getLogin = async (req, res, next) => {
   // res.render("auth/login", { error: false });
   const user = await User.findAll();
   res.json(user);
+<<<<<<< HEAD
   console.log(res);
+=======
+>>>>>>> 227e1c121e748ba5fb1e47eef25f692ffd862cff
 };
 
 exports.postLogin = async (req, res, next) => {
+  
   const user = await User.findOne({ where: { username: req.body.username } });
+  console.log(req.body.password);
   if (!user) {
     return res.render("auth/login", { error: true });
   }
@@ -27,6 +32,7 @@ exports.postLogin = async (req, res, next) => {
         : "/dashboard"
     );
   } else {
+    
     res.render("auth/login", { error: true });
   }
 };
