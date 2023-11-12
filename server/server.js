@@ -54,14 +54,14 @@ app.use("/api/services", serviceApiRoutes);
 app.use("/api/clientele", clienteleApiRoutes);
 app.use("/api/banner", bannerApiRoutes);
 app.use("/auth", authRoutes);
-// app.use((req, res, next) => {
-//   if (req.url != undefined && req.url !== "/favicon.ico")
-//     req.session.currentUrl = req.url;
-//   if (!req.session.isLoggedIn) {
-//     return res.render("auth/login", { error: false });
-//   }
-//   next();
-// });
+app.use((req, res, next) => {
+  if (req.url != undefined && req.url !== "/favicon.ico")
+    req.session.currentUrl = req.url;
+  if (!req.session.isLoggedIn) {
+    return res.render("auth/login", { error: false });
+  }
+  next();
+});
 app.use("/clientele", upload.single("imageUrl"), clienteleRoutes);
 app.use("/users", userRoutes);
 app.use("/blogs", upload.single("imageUrl"), blogRoutes);
