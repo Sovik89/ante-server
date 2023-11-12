@@ -9,7 +9,9 @@ exports.getLogin = (req, res, next) => {
 };
 
 exports.postLogin = async (req, res, next) => {
+  
   const user = await User.findOne({ where: { username: req.body.username } });
+  console.log(req.body.password,user.password);
   if (!user) {
     return res.render("auth/login", { error: true });
   }
@@ -24,6 +26,7 @@ exports.postLogin = async (req, res, next) => {
         : "/dashboard"
     );
   } else {
+    
     res.render("auth/login", { error: true });
   }
 };
