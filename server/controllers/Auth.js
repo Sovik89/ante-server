@@ -11,7 +11,7 @@ exports.getLogin = (req, res, next) => {
 exports.postLogin = async (req, res, next) => {
   
   const user = await User.findOne({ where: { username: req.body.username } });
-  console.log(req.body.password,user.password);
+  console.log(req.body.password);
   if (!user) {
     return res.render("auth/login", { error: true });
   }
