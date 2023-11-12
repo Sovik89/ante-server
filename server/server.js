@@ -20,7 +20,7 @@ const miscRoutes = require("./routes/Misc");
 const miscApiRoutes = require("./routes/MiscApi");
 
 const corsOptions = {
-  origin: [process.env.ORIGIN, process.env.ORIGIN2,process.env.ORIGIN3,*],
+  origin: [process.env.ORIGIN, process.env.ORIGIN2,process.env.ORIGIN3,"*"],
   optionsSuccessStatus: 200,
 };
 const app = express();
