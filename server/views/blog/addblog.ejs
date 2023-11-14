@@ -17,33 +17,13 @@
         cols="20"
         required
       ></textarea>
-      <input id="original" name="original" />
+      
       <%= possibleErrors.description %>
       <label for="imageUrl">ImageUrl</label>
       <input type="file" name="imageUrl" accept="image/*" required />
       <input type="submit" value="SAVE" />
       <input type="reset" value="Reset" />
     </form>
-    <script>
-      ClassicEditor.create(document.querySelector("#description"))
-        .then((editor) => {
-          editor.on("instanceReady", () => {
-            // This code will run once CKEditor is fully initialized
-            const descriptionTextarea = document.querySelector("#original");
-            descriptionTextarea.value =
-              CKEditor.instances.description.getData();
-          });
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-      // ClassicEditor.instances.description.editing.view.document.on(
-      //   "change:data",
-      //   () => {
-      //     const descriptionTextarea = document.querySelector("#original");
-      //     descriptionTextarea.value = CKEditor.instances.description.getData();
-      //   }
-      // );
-    </script>
+   
   </body>
 </html>

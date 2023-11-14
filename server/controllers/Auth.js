@@ -2,14 +2,11 @@ const bcrypt = require("bcryptjs");
 const User = require("./../models/Auth");
 
 exports.getLogin = async (req, res, next) => {
-  // if (req.session.isLoggedIn) {
-  //   res.render("dashboard");
-  // }
-  // res.render("auth/login", { error: false });
-  const user = await User.findAll();
-  res.json(user);
-
-  console.log(res);
+  if (req.session.isLoggedIn) {
+    res.render("dashboard");
+  }
+  res.render("auth/login", { error: false });
+ 
 };
 
 exports.postLogin = async (req, res, next) => {
